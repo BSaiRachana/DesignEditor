@@ -15,11 +15,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "jshint": "^2.9.6",
-    "mysql": "github:mysqljs/mysql",
-    "mysqljs": "0.0.2-security"
+    "mysql": "^2.15.0"
   }
 }

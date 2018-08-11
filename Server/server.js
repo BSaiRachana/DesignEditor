@@ -1,15 +1,13 @@
 const express = require('express');
-// const path = require('path');
 const http = require('http');
 const app = express();
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
-  password: "root@12345",
-  database: 'designs',
-  insecureAuth: false
+  password: "",
+  database: "designs"
 });
 
 con.connect(function(err) {
@@ -17,27 +15,32 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-// Point static path to dist
-// app.use(express.static(path.join(__dirname, 'dist')));
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
-// Catch all other routes and return the index file
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist/index.html'));
-// });
+app.get('/getDesigns', function(req, res){
+  con.query('SELECT * FROM designs_data', function(err, rows){
+    res.send(rows);
+  });
+});
 
-/**
- * Get port from environment and store in Express.
- */
+app.post('/addDesign', function (req, res) {
+ 
+  let design = req.body.design;
 
-// const port = process.env.PORT || '4520';
-// app.set('port', port);
+  if (!design) {
+      return res.status(400).send({ error:true, message: 'Please provide a design' });
+  }
 
-/**
- * Create HTTP server.
- */
+  mc.query("INSERT INTO designs SET ? ", { design: design }, function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'New design has been added successfully.' });
+  });
+});
+
 const server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
 server.listen(3000, () => console.log(`Server running on localhost:3000`));
