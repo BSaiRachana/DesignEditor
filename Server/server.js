@@ -35,7 +35,7 @@ app.post('/addDesign', function (req, res) {
       return res.status(400).send({ error:true, message: 'Please provide a design' });
   }
 
-  mc.query("INSERT INTO designs SET ? ", { design: design }, function (error, results, fields) {
+  con.query("INSERT INTO designs SET ? ", { design: design }, function (error, results, fields) {
       if (error) throw error;
       return res.send({ error: false, data: results, message: 'New design has been added successfully.' });
   });
