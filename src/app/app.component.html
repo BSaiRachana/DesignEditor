@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container designEditorApp">
+  <div>
+    <h2 id="app-title">
+      Design Editor App
+    </h2>
+  </div>
+
+  <div>
+    <ul class="nav nav-tabs">
+      <li *ngFor="let tab of tabs" [class.active]="tab.active">
+        <a id="tab-title" (click)="tabChange(tab)" [routerLink]="['/'+tab.link]">{{tab.title}}</a>
+      </li>
+    </ul>
+  </div>
+  <br />
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,45 @@
+<div>
+  <form [formGroup]="ImagesForm" (ngSubmit)="onUpload()">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="image" id="imageUpload-label">
+            To Upload Image on Shirt
+          </label>
+          <input type="file" accept="image/*" id="image" class="btn btn-wd fileSelect" required (change)="onFileChange($event)" #fileInput>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="bgImage" id="imageUpload-label">
+              To Change Shirt
+            </label>
+            <input type="file" accept="image/*" id="bgImage" class="btn btn-wd fileSelect" required (change)="onBDFileChange($event)" #fileInput>
+          </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <button type="button" class="btn btn-wd" (click)="clearFile()">Clear File</button>
+          <button type="submit" [disabled]="loading" class="btn btn-primary btn-fill btn-wd">Submit
+            <span class="loader" *ngIf="loading"></span>
+          </button>
+        </div>
+      </div>
+    </div> -->
+  </form>
+</div>
+
+<div>
+  <button type="button" class="btn btn-info" (click)="convertToImage()"> Download Image </button>
+  <button type="button" class="btn btn-danger" (click)="removeImageFromCanvas()">Remove Image</button>
+</div>
+
+<div>
+  <canvas id="canvas" class="canvas" width="500" height="500"></canvas>
+</div>

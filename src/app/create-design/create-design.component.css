@@ -1,0 +1,16 @@
+#canvas {
+    /* background-color: red; */
+    width: auto !important;
+    height: auto !important;
+    color: #000000;
+    padding-top: 20px;
+}
+
+#imageUpload-label {
+    float: left;
+}
+
+.fileSelect {
+    padding-top: 0;
+    padding-left: 30px;
+}

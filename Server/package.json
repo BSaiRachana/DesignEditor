@@ -1,0 +1,25 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "test for an api",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "node",
+    "test"
+  ],
+  "author": "Sai Rachana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "jshint": "^2.9.6",
+    "mysql": "github:mysqljs/mysql",
+    "mysqljs": "0.0.2-security"
+  }
+}

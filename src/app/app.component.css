@@ -1,0 +1,13 @@
+.designEditorApp {
+    background-color: #ccc9c5;
+}
+
+#app-title {
+    text-align:center;
+    font-weight: 1000;
+}
+
+#tab-title {
+    color: #3d2502;
+    font-weight: 550;
+}
